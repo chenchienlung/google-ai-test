@@ -1,3 +1,10 @@
-const API_KEY = process.env.API_KEY
+import { GoogleGenAI } from "@google/genai";
 
-console.log(API_KEY)
+const ai = new GoogleGenAI({});
+
+const resp= await ai.models.generateContent({
+  model: "gemini-2.5-flash",
+  contents: "你是誰？",
+})
+
+console.log(resp.text);
